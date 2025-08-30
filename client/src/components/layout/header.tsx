@@ -1,6 +1,14 @@
-import { Bell, User } from "lucide-react";
+import { Bell, User, ChevronDown } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 export default function Header() {
   const { user } = useAuth();
@@ -21,6 +29,172 @@ export default function Header() {
               </div>
             </div>
           </div>
+
+          {/* Navigation Menu */}
+          <NavigationMenu className="hidden md:flex">
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="text-sm font-medium">
+                  Home
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid gap-3 p-4 w-64">
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        href="#dashboard"
+                      >
+                        <div className="text-sm font-medium leading-none">Dashboard</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          View your order summary and analytics
+                        </p>
+                      </a>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        href="#orders"
+                      >
+                        <div className="text-sm font-medium leading-none">Orders</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          Manage all your shipping orders
+                        </p>
+                      </a>
+                    </NavigationMenuLink>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="text-sm font-medium">
+                  About
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid gap-3 p-4 w-64">
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        href="#company"
+                      >
+                        <div className="text-sm font-medium leading-none">Our Company</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          Learn about LBC Express and our mission
+                        </p>
+                      </a>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        href="#services"
+                      >
+                        <div className="text-sm font-medium leading-none">Services</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          Explore our shipping and logistics services
+                        </p>
+                      </a>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        href="#careers"
+                      >
+                        <div className="text-sm font-medium leading-none">Careers</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          Join our team and grow with us
+                        </p>
+                      </a>
+                    </NavigationMenuLink>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="text-sm font-medium">
+                  Tracking
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid gap-3 p-4 w-64">
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        href="#track-order"
+                      >
+                        <div className="text-sm font-medium leading-none">Track Your Order</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          Enter tracking number to see order status
+                        </p>
+                      </a>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        href="#delivery-status"
+                      >
+                        <div className="text-sm font-medium leading-none">Delivery Status</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          Real-time updates on your deliveries
+                        </p>
+                      </a>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        href="#shipping-history"
+                      >
+                        <div className="text-sm font-medium leading-none">Shipping History</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          View all your past shipments
+                        </p>
+                      </a>
+                    </NavigationMenuLink>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="text-sm font-medium">
+                  Contact
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid gap-3 p-4 w-64">
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        href="#customer-service"
+                      >
+                        <div className="text-sm font-medium leading-none">Customer Service</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          Get help with your orders and inquiries
+                        </p>
+                      </a>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        href="#branch-locator"
+                      >
+                        <div className="text-sm font-medium leading-none">Branch Locator</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          Find the nearest LBC branch to you
+                        </p>
+                      </a>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        href="#feedback"
+                      >
+                        <div className="text-sm font-medium leading-none">Feedback</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          Share your experience and suggestions
+                        </p>
+                      </a>
+                    </NavigationMenuLink>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
           
           {/* Header Actions */}
           <div className="flex items-center space-x-4">
