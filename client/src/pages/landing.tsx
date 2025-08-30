@@ -117,18 +117,13 @@ export default function Landing() {
 
             {/* Right Content - Hero Image Area */}
             <div className="relative">
-              <div className="bg-gradient-to-br from-red-400 to-red-600 rounded-full w-96 h-96 mx-auto relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-red-300/30 to-transparent"></div>
-                
-                {/* Placeholder for people images */}
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex items-end space-x-4">
-                  <div className="w-32 h-40 bg-white/20 rounded-t-full flex items-end justify-center">
-                    <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center mb-4">
-                      <span className="text-white font-bold text-xs">LBC</span>
-                    </div>
-                  </div>
-                  <div className="w-32 h-40 bg-white/20 rounded-t-full"></div>
-                </div>
+              <div className="relative w-full max-w-lg mx-auto">
+                <img 
+                  src="/lbcboss-spot-d.jpg" 
+                  alt="LBC Express BOSS - Bulk Order Sulit Sending" 
+                  className="w-full h-auto rounded-2xl shadow-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-red-600/20 to-transparent rounded-2xl"></div>
               </div>
               
               {/* Delivery Truck */}
