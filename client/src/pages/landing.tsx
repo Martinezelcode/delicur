@@ -54,89 +54,86 @@ export default function Landing() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-red-50 to-blue-50 py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-red-100/50 to-blue-100/50"></div>
+      <section 
+        className="relative min-h-screen bg-cover bg-center bg-no-repeat overflow-hidden"
+        style={{
+          backgroundImage: `url('/lbcboss-spot-d.jpg')`
+        }}
+      >
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-red-600/80 via-red-600/40 to-transparent"></div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">LBC</span>
+        <div className="relative min-h-screen flex items-center justify-start">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="max-w-2xl">
+              <div className="space-y-8">
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                      <span className="text-red-600 font-bold text-lg">LBC</span>
+                    </div>
+                    <span className="text-white font-semibold text-xl drop-shadow-lg">Magpadala like a</span>
                   </div>
-                  <span className="text-red-600 font-semibold text-lg">Magpadala like a</span>
+                  
+                  <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white leading-tight drop-shadow-2xl">
+                    BOSS
+                  </h1>
+                  
+                  <div className="bg-yellow-400 text-black px-6 py-3 rounded-xl inline-block shadow-lg">
+                    <span className="font-bold text-lg">Bulk Order Sulit Sending</span>
+                  </div>
+                  
+                  <p className="text-xl text-white font-medium drop-shadow-lg">
+                    Ang padalang pang-maramihan, para sa karamihan.
+                  </p>
                 </div>
-                
-                <h1 className="text-5xl md:text-7xl font-bold text-red-600 leading-tight">
-                  BOSS
-                </h1>
-                
-                <div className="bg-yellow-400 text-black px-4 py-2 rounded-lg inline-block">
-                  <span className="font-bold">Bulk Order Sulit Sending</span>
-                </div>
-                
-                <p className="text-lg text-gray-700 font-medium">
-                  Ang padalang pang-maramihan, para sa karamihan.
-                </p>
-              </div>
 
-              {/* Features List */}
-              <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                  <span className="text-gray-800">Up to 60% discount</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                  <span className="text-gray-800">Dedicated customer support</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                  <span className="text-gray-800">Nationwide coverage</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                  <span className="text-gray-800">Cash on delivery & pick-up</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                  <span className="text-gray-800">Access to LBC app and digital tools</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                  <span className="text-gray-800">Same-day pick-up</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                  <span className="text-gray-800">And many more!</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Content - Hero Image Area */}
-            <div className="relative">
-              <div className="relative w-full max-w-lg mx-auto">
-                <img 
-                  src="/lbcboss-spot-d.jpg" 
-                  alt="LBC Express BOSS - Bulk Order Sulit Sending" 
-                  className="w-full h-auto rounded-2xl shadow-2xl"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-red-600/20 to-transparent rounded-2xl"></div>
-              </div>
-              
-              {/* Delivery Truck */}
-              <div className="absolute -bottom-8 right-0 bg-red-600 rounded-lg p-4 shadow-lg">
-                <div className="flex items-center space-x-2">
-                  <Truck className="h-8 w-8 text-white" />
-                  <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center">
-                    <span className="text-red-600 font-bold text-xs">LBC</span>
+                {/* Features List */}
+                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-8 space-y-4 shadow-2xl">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                    <span className="text-gray-800 font-medium">Up to 60% discount</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                    <span className="text-gray-800 font-medium">Dedicated customer support</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                    <span className="text-gray-800 font-medium">Nationwide coverage</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                    <span className="text-gray-800 font-medium">Cash on delivery & pick-up</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                    <span className="text-gray-800 font-medium">Access to LBC app and digital tools</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                    <span className="text-gray-800 font-medium">Same-day pick-up</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                    <span className="text-gray-800 font-medium">And many more!</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Delivery Truck */}
+        <div className="absolute bottom-8 right-8 bg-red-600 rounded-xl p-6 shadow-2xl">
+          <div className="flex items-center space-x-3">
+            <Truck className="h-10 w-10 text-white" />
+            <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
+              <span className="text-red-600 font-bold text-sm">LBC</span>
+            </div>
+          </div>
+        </div>
 
           {/* Package Tracking Card */}
           <div className="mt-16 max-w-md mx-auto">
