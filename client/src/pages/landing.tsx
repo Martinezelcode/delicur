@@ -53,7 +53,7 @@ export default function Landing() {
                 />
                 <div>
                   <h1 className="text-xl font-bold text-foreground">LBC Express</h1>
-                  <p className="text-xs text-muted-foreground">Aba Oo Logistics</p>
+                  <p className="text-xs text-muted-foreground">Express Courier, Cargo, and Money Remittance</p>
                 </div>
               </div>
             </div>
@@ -342,12 +342,14 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="flex items-center justify-center space-x-3 mb-4">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-red-600 font-bold text-lg">LBC</span>
-              </div>
+              <img 
+                src="/attached_assets/icon (2)_1756565780804.png" 
+                alt="LBC Express Logo" 
+                className="w-12 h-12 object-contain bg-white rounded-lg p-1"
+              />
               <div className="text-left">
                 <h3 className="text-xl font-bold">LBC Express</h3>
-                <p className="text-red-200 text-sm">Aba Oo Logistics</p>
+                <p className="text-red-200 text-sm">Express Courier, Cargo, and Money Remittance</p>
               </div>
             </div>
             <p className="text-red-100 mb-4">
