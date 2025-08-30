@@ -58,6 +58,17 @@ export default function Landing() {
             
             <nav className="hidden md:flex items-center space-x-8">
               <a 
+                href="#tracking" 
+                className="text-gray-700 hover:text-red-600 font-medium transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('tracking')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                data-testid="link-tracking"
+              >
+                Tracking
+              </a>
+              <a 
                 href="#services" 
                 className="text-gray-700 hover:text-red-600 font-medium transition-colors"
                 onClick={(e) => {
@@ -102,22 +113,13 @@ export default function Landing() {
                 Testimonials
               </a>
             </nav>
-            
-            <div className="flex items-center space-x-4">
-              <Button 
-                onClick={() => window.location.href = '/api/login'}
-                className="bg-red-600 hover:bg-red-700 text-white"
-                data-testid="button-login"
-              >
-                Admin Login
-              </Button>
-            </div>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
       <section 
+        id="tracking"
         className="relative min-h-screen bg-cover bg-center bg-no-repeat overflow-hidden pt-16"
         style={{
           backgroundImage: `url('/lbcboss-spot-d.jpg')`
