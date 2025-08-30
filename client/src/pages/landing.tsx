@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Truck, Package, Clock, Shield, Calculator, Search, Star, Users, MapPin } from "lucide-react";
+import { Truck, Package, Clock, Shield, Calculator, Search, Star, Users, MapPin, Menu, X } from "lucide-react";
 
 // Type for the tracking response
 type TrackingResponse = {
@@ -25,6 +25,7 @@ type TrackingResponse = {
 export default function Landing() {
   const [trackingNumber, setTrackingNumber] = useState("");
   const [shouldTrack, setShouldTrack] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const { data: trackingData, isLoading: isTracking, error } = useQuery<TrackingResponse>({
     queryKey: ["/api/track", trackingNumber],
@@ -115,7 +116,87 @@ export default function Landing() {
                 Testimonials
               </a>
             </nav>
+            
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                data-testid="button-mobile-menu"
+              >
+                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </Button>
+            </div>
           </div>
+          
+          {/* Mobile menu dropdown */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden border-t border-gray-200 bg-white">
+              <div className="px-2 pt-2 pb-3 space-y-1">
+                <a
+                  href="#tracking"
+                  className="block px-3 py-2 text-gray-700 hover:text-red-600 font-medium transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('tracking')?.scrollIntoView({ behavior: 'smooth' });
+                    setIsMobileMenuOpen(false);
+                  }}
+                  data-testid="mobile-link-tracking"
+                >
+                  Tracking
+                </a>
+                <a
+                  href="#services"
+                  className="block px-3 py-2 text-gray-700 hover:text-red-600 font-medium transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                    setIsMobileMenuOpen(false);
+                  }}
+                  data-testid="mobile-link-services"
+                >
+                  Services
+                </a>
+                <a
+                  href="#coverage"
+                  className="block px-3 py-2 text-gray-700 hover:text-red-600 font-medium transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('coverage')?.scrollIntoView({ behavior: 'smooth' });
+                    setIsMobileMenuOpen(false);
+                  }}
+                  data-testid="mobile-link-coverage"
+                >
+                  Coverage
+                </a>
+                <a
+                  href="#rates"
+                  className="block px-3 py-2 text-gray-700 hover:text-red-600 font-medium transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('rates')?.scrollIntoView({ behavior: 'smooth' });
+                    setIsMobileMenuOpen(false);
+                  }}
+                  data-testid="mobile-link-rates"
+                >
+                  Rates
+                </a>
+                <a
+                  href="#testimonials"
+                  className="block px-3 py-2 text-gray-700 hover:text-red-600 font-medium transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' });
+                    setIsMobileMenuOpen(false);
+                  }}
+                  data-testid="mobile-link-testimonials"
+                >
+                  Testimonials
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </header>
 
