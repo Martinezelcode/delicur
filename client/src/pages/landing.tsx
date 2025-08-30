@@ -6,11 +6,27 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Truck, Package, Clock, Shield, Calculator, Search, Star, Users, MapPin } from "lucide-react";
 
+// Type for the tracking response
+type TrackingResponse = {
+  orderNumber: string;
+  status: string;
+  recipientName: string;
+  estimatedDelivery?: string;
+  trackingHistory?: Array<{
+    id: string;
+    orderId: string;
+    status: string;
+    location?: string;
+    notes?: string;
+    timestamp: string;
+  }>;
+};
+
 export default function Landing() {
   const [trackingNumber, setTrackingNumber] = useState("");
   const [shouldTrack, setShouldTrack] = useState(false);
 
-  const { data: trackingData, isLoading: isTracking, error } = useQuery({
+  const { data: trackingData, isLoading: isTracking, error } = useQuery<TrackingResponse>({
     queryKey: ["/api/track", trackingNumber],
     enabled: shouldTrack && trackingNumber.trim().length > 0,
     retry: false,
@@ -134,75 +150,74 @@ export default function Landing() {
             </div>
           </div>
         </div>
-
-          {/* Package Tracking Card */}
-          <div className="mt-16 max-w-md mx-auto">
-            <Card className="shadow-xl border-2 border-red-100">
-              <CardHeader className="bg-gradient-to-r from-red-600 to-red-700 text-white rounded-t-lg">
-                <CardTitle className="flex items-center justify-center space-x-2">
-                  <Search className="h-5 w-5" />
-                  <span>Track Your Package</span>
-                </CardTitle>
-                <CardDescription className="text-red-100">
-                  Enter your tracking number to get real-time updates
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4 pt-6">
-                <div className="flex space-x-2">
-                  <Input
-                    type="text"
-                    placeholder="LBC-2024-XXXX"
-                    value={trackingNumber}
-                    onChange={(e) => setTrackingNumber(e.target.value)}
-                    className="flex-1 border-red-200 focus:border-red-500"
-                    data-testid="input-tracking-number"
-                  />
-                  <Button 
-                    onClick={handleTrackPackage}
-                    disabled={isTracking || !trackingNumber.trim()}
-                    className="bg-red-600 hover:bg-red-700"
-                    data-testid="button-track-package"
-                  >
-                    {isTracking ? "Tracking..." : "Track"}
-                  </Button>
+        
+        {/* Package Tracking Card */}
+        <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 max-w-md w-full px-4">
+          <Card className="shadow-xl border-2 border-red-100">
+            <CardHeader className="bg-gradient-to-r from-red-600 to-red-700 text-white rounded-t-lg">
+              <CardTitle className="flex items-center justify-center space-x-2">
+                <Search className="h-5 w-5" />
+                <span>Track Your Package</span>
+              </CardTitle>
+              <CardDescription className="text-red-100">
+                Enter your tracking number to get real-time updates
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4 pt-6">
+              <div className="flex space-x-2">
+                <Input
+                  type="text"
+                  placeholder="LBC-2024-XXXX"
+                  value={trackingNumber}
+                  onChange={(e) => setTrackingNumber(e.target.value)}
+                  className="flex-1 border-red-200 focus:border-red-500"
+                  data-testid="input-tracking-number"
+                />
+                <Button 
+                  onClick={handleTrackPackage}
+                  disabled={isTracking || !trackingNumber.trim()}
+                  className="bg-red-600 hover:bg-red-700"
+                  data-testid="button-track-package"
+                >
+                  {isTracking ? "Tracking..." : "Track"}
+                </Button>
+              </div>
+              
+              {error && (
+                <div className="text-sm text-red-600 text-center bg-red-50 p-3 rounded-lg" data-testid="text-tracking-error">
+                  Order not found. Please check your tracking number.
                 </div>
-                
-                {error && (
-                  <div className="text-sm text-red-600 text-center bg-red-50 p-3 rounded-lg" data-testid="text-tracking-error">
-                    Order not found. Please check your tracking number.
-                  </div>
-                )}
-                
-                {trackingData && (
-                  <div className="bg-gray-50 p-4 rounded-lg border border-gray-200" data-testid="card-tracking-result">
-                    <h4 className="font-medium text-foreground mb-2">
-                      Order: {trackingData.orderNumber}
-                    </h4>
-                    <div className="space-y-2">
+              )}
+              
+              {trackingData && (
+                <div className="bg-gray-50 p-4 rounded-lg border border-gray-200" data-testid="card-tracking-result">
+                  <h4 className="font-medium text-foreground mb-2">
+                    Order: {trackingData.orderNumber}
+                  </h4>
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-muted-foreground">Status:</span>
+                      <span className={`status-${trackingData.status} px-2 py-1 rounded-full text-xs font-medium`}>
+                        {trackingData.status.charAt(0).toUpperCase() + trackingData.status.slice(1)}
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-muted-foreground">Recipient:</span>
+                      <span className="text-foreground">{trackingData.recipientName}</span>
+                    </div>
+                    {trackingData.estimatedDelivery && (
                       <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">Status:</span>
-                        <span className={`status-${trackingData.status} px-2 py-1 rounded-full text-xs font-medium`}>
-                          {trackingData.status.charAt(0).toUpperCase() + trackingData.status.slice(1)}
+                        <span className="text-muted-foreground">Est. Delivery:</span>
+                        <span className="text-foreground">
+                          {new Date(trackingData.estimatedDelivery).toLocaleDateString()}
                         </span>
                       </div>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">Recipient:</span>
-                        <span className="text-foreground">{trackingData.recipientName}</span>
-                      </div>
-                      {trackingData.estimatedDelivery && (
-                        <div className="flex justify-between text-sm">
-                          <span className="text-muted-foreground">Est. Delivery:</span>
-                          <span className="text-foreground">
-                            {new Date(trackingData.estimatedDelivery).toLocaleDateString()}
-                          </span>
-                        </div>
-                      )}
-                    </div>
+                    )}
                   </div>
-                )}
-              </CardContent>
-            </Card>
-          </div>
+                </div>
+              )}
+            </CardContent>
+          </Card>
         </div>
       </section>
 
