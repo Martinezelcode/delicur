@@ -1,0 +1,7 @@
+
+<svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M60 5C30.2 5 6 29.2 6 59S30.2 113 60 113S114 88.8 114 59S89.8 5 60 5Z" fill="#E53E3E"/>
+  <path d="M60 15C35.7 15 16 34.7 16 59S35.7 103 60 103S104 83.3 104 59S84.3 15 60 15Z" fill="white" fill-opacity="0.1"/>
+  <text x="60" y="45" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">LBC</text>
+  <path d="M45 55L55 65L75 45" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -11,13 +11,13 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo Section */}
           <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 lbc-bg-red rounded flex items-center justify-center">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">LBC</span>
               </div>
               <div>
                 <h1 className="text-lg font-semibold text-foreground">LBC Express</h1>
-                <p className="text-xs text-muted-foreground">Order Management System</p>
+                <p className="text-xs text-red-600 font-medium">Aba Oo Logistics</p>
               </div>
             </div>
           </div>

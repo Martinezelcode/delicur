@@ -4,6 +4,20 @@
 @tailwind utilities;
 
 :root {
+  --lbc-red: #dc2626;
+  --lbc-red-dark: #b91c1c;
+  --lbc-red-light: #fee2e2;
+}
+
+.lbc-bg-red {
+  background-color: var(--lbc-red);
+}
+
+.lbc-text-red {
+  color: var(--lbc-red);
+}
+
+:root {
   --background: hsl(0, 0%, 100%);
   --foreground: hsl(240, 10%, 3.9%);
   --card: hsl(0, 0%, 100%);
