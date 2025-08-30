@@ -73,9 +73,9 @@ export default function Sidebar() {
               return (
                 <li key={item.name}>
                   <Link href={item.href}>
-                    <a
+                    <span
                       className={cn(
-                        "flex items-center space-x-3 px-3 py-2 text-sm font-medium rounded-md transition-colors",
+                        "flex items-center space-x-3 px-3 py-2 text-sm font-medium rounded-md transition-colors cursor-pointer",
                         isActive
                           ? "bg-accent text-accent-foreground"
                           : "text-muted-foreground hover:text-foreground hover:bg-accent"
@@ -84,14 +84,14 @@ export default function Sidebar() {
                     >
                       <item.icon className="w-4 h-4" />
                       <span>{item.name}</span>
-                    </a>
+                    </span>
                   </Link>
                 </li>
               );
             })}
           </ul>
         </div>
-        
+
         <div className="mb-6">
           <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">
             Services
@@ -102,9 +102,9 @@ export default function Sidebar() {
               return (
                 <li key={item.name}>
                   <Link href={item.href}>
-                    <a
+                    <span
                       className={cn(
-                        "flex items-center space-x-3 px-3 py-2 text-sm font-medium rounded-md transition-colors",
+                        "flex items-center space-x-3 px-3 py-2 text-sm font-medium rounded-md transition-colors cursor-pointer",
                         isActive
                           ? "bg-accent text-accent-foreground"
                           : "text-muted-foreground hover:text-foreground hover:bg-accent"
@@ -113,7 +113,7 @@ export default function Sidebar() {
                     >
                       <item.icon className="w-4 h-4" />
                       <span>{item.name}</span>
-                    </a>
+                    </span>
                   </Link>
                 </li>
               );
