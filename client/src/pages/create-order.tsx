@@ -122,7 +122,7 @@ export default function CreateOrder() {
       });
       const rateData = await response.json();
       setCalculatedRate(rateData);
-      
+
       // Update form with calculated rate
       form.setValue("shippingRate", rateData.rate);
       const codAmount = form.getValues("isCod") ? form.getValues("codAmount") || 0 : 0;
@@ -160,7 +160,7 @@ export default function CreateOrder() {
       <Header />
       <div className="flex">
         <Sidebar />
-        
+
         <main className="flex-1 p-6">
           <div className="max-w-4xl mx-auto">
             {/* Header */}
@@ -192,7 +192,7 @@ export default function CreateOrder() {
                           </FormItem>
                         )}
                       />
-                      
+
                       <FormField
                         control={form.control}
                         name="senderPhone"
@@ -206,7 +206,7 @@ export default function CreateOrder() {
                           </FormItem>
                         )}
                       />
-                      
+
                       <FormField
                         control={form.control}
                         name="senderEmail"
@@ -220,7 +220,7 @@ export default function CreateOrder() {
                           </FormItem>
                         )}
                       />
-                      
+
                       <FormField
                         control={form.control}
                         name="senderAddress"
@@ -256,7 +256,7 @@ export default function CreateOrder() {
                           </FormItem>
                         )}
                       />
-                      
+
                       <FormField
                         control={form.control}
                         name="recipientPhone"
@@ -270,7 +270,7 @@ export default function CreateOrder() {
                           </FormItem>
                         )}
                       />
-                      
+
                       <FormField
                         control={form.control}
                         name="recipientEmail"
@@ -284,7 +284,7 @@ export default function CreateOrder() {
                           </FormItem>
                         )}
                       />
-                      
+
                       <FormField
                         control={form.control}
                         name="recipientAddress"
@@ -332,7 +332,7 @@ export default function CreateOrder() {
                           </FormItem>
                         )}
                       />
-                      
+
                       <FormField
                         control={form.control}
                         name="weight"
@@ -346,7 +346,7 @@ export default function CreateOrder() {
                           </FormItem>
                         )}
                       />
-                      
+
                       <FormField
                         control={form.control}
                         name="declaredValue"
@@ -361,7 +361,7 @@ export default function CreateOrder() {
                         )}
                       />
                     </div>
-                    
+
                     <FormField
                       control={form.control}
                       name="description"
@@ -407,7 +407,7 @@ export default function CreateOrder() {
                           </FormItem>
                         )}
                       />
-                      
+
                       <FormField
                         control={form.control}
                         name="fromRegion"
@@ -432,7 +432,7 @@ export default function CreateOrder() {
                           </FormItem>
                         )}
                       />
-                      
+
                       <FormField
                         control={form.control}
                         name="toRegion"
@@ -457,7 +457,7 @@ export default function CreateOrder() {
                           </FormItem>
                         )}
                       />
-                      
+
                       <FormField
                         control={form.control}
                         name="assignedAgentId"
@@ -471,7 +471,7 @@ export default function CreateOrder() {
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
-                                <SelectItem value="">Auto-assign</SelectItem>
+                                <SelectItem value="auto">Auto-assign</SelectItem>
                                 {agents?.map((agent) => (
                                   <SelectItem key={agent.id} value={agent.id}>
                                     {agent.fullName}
@@ -505,7 +505,7 @@ export default function CreateOrder() {
                           </FormItem>
                         )}
                       />
-                      
+
                       <FormField
                         control={form.control}
                         name="hasInsurance"
@@ -524,7 +524,7 @@ export default function CreateOrder() {
                           </FormItem>
                         )}
                       />
-                      
+
                       <FormField
                         control={form.control}
                         name="hasSmsNotification"

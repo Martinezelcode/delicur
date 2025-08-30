@@ -62,7 +62,7 @@ export default function OrderForm({ order, onSuccess, onCancel }: OrderFormProps
       shippingRate: order.shippingRate ? parseFloat(order.shippingRate) : 0,
       totalAmount: order.totalAmount ? parseFloat(order.totalAmount) : 0,
       status: order.status,
-      assignedAgentId: order.assignedAgentId || "",
+      assignedAgentId: order.assignedAgentId || "auto",
     } : {
       senderName: "",
       senderPhone: "",
@@ -86,7 +86,7 @@ export default function OrderForm({ order, onSuccess, onCancel }: OrderFormProps
       shippingRate: 0,
       totalAmount: 0,
       status: "pending",
-      assignedAgentId: "",
+      assignedAgentId: "auto",
     },
   });
 
@@ -462,14 +462,14 @@ export default function OrderForm({ order, onSuccess, onCancel }: OrderFormProps
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Assign to Agent</FormLabel>
-                    <Select onValueChange={field.onChange} value={field.value || ""}>
+                    <Select onValueChange={field.onChange} value={field.value || "auto"}>
                       <FormControl>
                         <SelectTrigger data-testid="select-assigned-agent">
                           <SelectValue placeholder="Auto-assign" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="">Auto-assign</SelectItem>
+                        <SelectItem value="auto">Auto-assign</SelectItem>
                         {agents?.map((agent) => (
                           <SelectItem key={agent.id} value={agent.id}>
                             {agent.fullName}
