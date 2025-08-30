@@ -48,7 +48,7 @@ export default function Landing() {
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-3">
                 <img 
-                  src="/attached_assets/icon (2)_1756565780804.png" 
+                  src="https://www.lbcexpress.com/assets/img/icon.png" 
                   alt="LBC Express Logo" 
                   className="w-12 h-12 object-contain"
                 />
@@ -424,7 +424,7 @@ export default function Landing() {
           <div className="text-center">
             <div className="flex items-center justify-center space-x-3 mb-4">
               <img 
-                src="/attached_assets/icon (2)_1756565780804.png" 
+                src="https://www.lbcexpress.com/assets/img/icon.png" 
                 alt="LBC Express Logo" 
                 className="w-12 h-12 object-contain bg-white rounded-lg p-1"
               />
