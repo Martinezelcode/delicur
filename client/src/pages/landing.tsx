@@ -41,7 +41,7 @@ export default function Landing() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b border-border">
+      <header className="bg-white shadow-sm border-b border-border fixed w-full top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
@@ -55,6 +55,53 @@ export default function Landing() {
                 </div>
               </div>
             </div>
+            
+            <nav className="hidden md:flex items-center space-x-8">
+              <a 
+                href="#services" 
+                className="text-gray-700 hover:text-red-600 font-medium transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                data-testid="link-services"
+              >
+                Services
+              </a>
+              <a 
+                href="#coverage" 
+                className="text-gray-700 hover:text-red-600 font-medium transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('coverage')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                data-testid="link-coverage"
+              >
+                Coverage
+              </a>
+              <a 
+                href="#rates" 
+                className="text-gray-700 hover:text-red-600 font-medium transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('rates')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                data-testid="link-rates"
+              >
+                Rates
+              </a>
+              <a 
+                href="#testimonials" 
+                className="text-gray-700 hover:text-red-600 font-medium transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                data-testid="link-testimonials"
+              >
+                Testimonials
+              </a>
+            </nav>
             
             <div className="flex items-center space-x-4">
               <Button 
@@ -71,70 +118,17 @@ export default function Landing() {
 
       {/* Hero Section */}
       <section 
-        className="relative min-h-screen bg-cover bg-center bg-no-repeat overflow-hidden"
+        className="relative min-h-screen bg-cover bg-center bg-no-repeat overflow-hidden pt-16"
         style={{
           backgroundImage: `url('/lbcboss-spot-d.jpg')`
         }}
       >
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/40"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-red-600/80 via-red-600/40 to-transparent"></div>
-        
         <div className="relative min-h-screen flex items-center justify-start">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="max-w-2xl">
               <div className="space-y-8">
                 <div className="space-y-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                      <span className="text-red-600 font-bold text-lg">LBC</span>
-                    </div>
-                    <span className="text-white font-semibold text-xl drop-shadow-lg">Magpadala like a</span>
-                  </div>
-                  
-                  <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white leading-tight drop-shadow-2xl">
-                    BOSS
-                  </h1>
-                  
-                  <div className="bg-yellow-400 text-black px-6 py-3 rounded-xl inline-block shadow-lg">
-                    <span className="font-bold text-lg">Bulk Order Sulit Sending</span>
-                  </div>
-                  
-                  <p className="text-xl text-white font-medium drop-shadow-lg">
-                    Ang padalang pang-maramihan, para sa karamihan.
-                  </p>
-                </div>
-
-                {/* Features List */}
-                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-8 space-y-4 shadow-2xl">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-red-600 rounded-full"></div>
-                    <span className="text-gray-800 font-medium">Up to 60% discount</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-red-600 rounded-full"></div>
-                    <span className="text-gray-800 font-medium">Dedicated customer support</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-red-600 rounded-full"></div>
-                    <span className="text-gray-800 font-medium">Nationwide coverage</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-red-600 rounded-full"></div>
-                    <span className="text-gray-800 font-medium">Cash on delivery & pick-up</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-red-600 rounded-full"></div>
-                    <span className="text-gray-800 font-medium">Access to LBC app and digital tools</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-red-600 rounded-full"></div>
-                    <span className="text-gray-800 font-medium">Same-day pick-up</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-red-600 rounded-full"></div>
-                    <span className="text-gray-800 font-medium">And many more!</span>
-                  </div>
+                  {/* Hero content can be added here if needed */}
                 </div>
               </div>
             </div>
