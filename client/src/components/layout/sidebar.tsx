@@ -7,7 +7,8 @@ import {
   Bus,
   Calculator,
   SearchCheck,
-  BarChart3
+  BarChart3,
+  Shield
 } from "lucide-react";
 import { Link, useLocation } from "wouter";
 
@@ -36,6 +37,11 @@ const navigation = [
     name: "Delivery Agents",
     href: "/agents",
     icon: Bus,
+  },
+  {
+    name: "Admin",
+    href: "/admin",
+    icon: Shield,
   },
 ];
 

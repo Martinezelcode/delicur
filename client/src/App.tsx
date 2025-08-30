@@ -14,6 +14,7 @@ import Agents from "@/pages/agents";
 import RateCalculator from "@/pages/rate-calculator";
 import Tracking from "@/pages/tracking";
 import Reports from "@/pages/reports";
+import Admin from "@/pages/admin";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -35,6 +36,7 @@ function Router() {
           <Route path="/rate-calculator" component={RateCalculator} />
           <Route path="/tracking" component={Tracking} />
           <Route path="/reports" component={Reports} />
+          <Route path="/admin" component={Admin} />
         </>
       )}
       <Route component={NotFound} />
