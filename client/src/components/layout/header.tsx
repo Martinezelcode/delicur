@@ -25,7 +25,7 @@ export default function Header() {
               </div>
               <div>
                 <h1 className="text-lg font-semibold text-foreground">LBC Express</h1>
-                <p className="text-xs text-red-600 font-medium">Aba Oo Logistics</p>
+                <p className="text-xs text-red-600 font-medium">Express, Courier, Cargo.</p>
               </div>
             </div>
           </div>
