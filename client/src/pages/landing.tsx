@@ -46,9 +46,11 @@ export default function Landing() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">LBC</span>
-                </div>
+                <img 
+                  src="/attached_assets/icon (2)_1756565780804.png" 
+                  alt="LBC Express Logo" 
+                  className="w-12 h-12 object-contain"
+                />
                 <div>
                   <h1 className="text-xl font-bold text-foreground">LBC Express</h1>
                   <p className="text-xs text-muted-foreground">Aba Oo Logistics</p>
