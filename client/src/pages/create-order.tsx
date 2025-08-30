@@ -464,7 +464,7 @@ export default function CreateOrder() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>Assign to Agent</FormLabel>
-                            <Select onValueChange={field.onChange} value={field.value || ""}>
+                            <Select onValueChange={field.onChange} value={field.value || "auto"}>
                               <FormControl>
                                 <SelectTrigger data-testid="select-assigned-agent">
                                   <SelectValue placeholder="Auto-assign" />
