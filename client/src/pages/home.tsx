@@ -116,7 +116,7 @@ export default function Home() {
                       <Skeleton className="h-8 w-16 mt-2" />
                     ) : (
                       <p className="text-2xl font-bold text-foreground" data-testid="text-total-orders">
-                        {stats?.totalOrders || 0}
+                        {(stats as any)?.totalOrders || 0}
                       </p>
                     )}
                   </div>
@@ -136,7 +136,7 @@ export default function Home() {
                       <Skeleton className="h-8 w-16 mt-2" />
                     ) : (
                       <p className="text-2xl font-bold text-foreground" data-testid="text-pending-orders">
-                        {stats?.pendingOrders || 0}
+                        {(stats as any)?.pendingOrders || 0}
                       </p>
                     )}
                   </div>
@@ -156,7 +156,7 @@ export default function Home() {
                       <Skeleton className="h-8 w-16 mt-2" />
                     ) : (
                       <p className="text-2xl font-bold text-foreground" data-testid="text-in-transit-orders">
-                        {stats?.inTransitOrders || 0}
+                        {(stats as any)?.inTransitOrders || 0}
                       </p>
                     )}
                   </div>
@@ -176,7 +176,7 @@ export default function Home() {
                       <Skeleton className="h-8 w-16 mt-2" />
                     ) : (
                       <p className="text-2xl font-bold text-foreground" data-testid="text-delivered-orders">
-                        {stats?.deliveredOrders || 0}
+                        {(stats as any)?.deliveredOrders || 0}
                       </p>
                     )}
                   </div>
@@ -215,7 +215,7 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-              ) : recentOrders?.orders?.length > 0 ? (
+              ) : (recentOrders as any)?.orders?.length > 0 ? (
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
@@ -228,7 +228,7 @@ export default function Home() {
                       </tr>
                     </thead>
                     <tbody>
-                      {recentOrders.orders.map((order) => (
+                      {(recentOrders as any).orders.map((order: any) => (
                         <tr key={order.id} className="border-b border-border" data-testid={`row-order-${order.id}`}>
                           <td className="py-3 px-4 font-medium text-foreground">{order.orderNumber}</td>
                           <td className="py-3 px-4 text-foreground">{order.senderName}</td>

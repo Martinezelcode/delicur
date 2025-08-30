@@ -229,7 +229,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           orderId: id,
           status: updates.status,
           notes: `Status updated to ${updates.status}`,
-          updatedBy: req.user?.claims?.sub || "admin",
+          updatedBy: (req.user as any)?.claims?.sub || "admin",
         });
       }
       
@@ -337,9 +337,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       };
 
       const rateKey = `${fromRegion}-${toRegion}`;
-      const multiplier = regionMultipliers[rateKey] || regionMultipliers[`${toRegion}-${fromRegion}`] || 1.5;
+      const multiplier = (regionMultipliers as any)[rateKey] || (regionMultipliers as any)[`${toRegion}-${fromRegion}`] || 1.5;
       
-      const serviceRate = baseRates[serviceType] || baseRates.regular;
+      const serviceRate = (baseRates as any)[serviceType] || baseRates.regular;
       const baseRate = serviceRate.base * multiplier;
       const weightRate = Math.max(0, (parseFloat(weight) - 1)) * serviceRate.perKg;
       const totalRate = baseRate + weightRate;
@@ -387,7 +387,7 @@ function getEstimatedDays(fromRegion: string, toRegion: string): string {
     },
   };
 
-  return deliveryMatrix[fromRegion]?.[toRegion] || 
-         deliveryMatrix[toRegion]?.[fromRegion] || 
+  return (deliveryMatrix as any)[fromRegion]?.[toRegion] || 
+         (deliveryMatrix as any)[toRegion]?.[fromRegion] || 
          "3-7";
 }
